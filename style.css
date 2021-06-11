@@ -1,1 +1,193 @@
+h1{
+    font-family: 'Baloo Tammudu 2', cursive;
+    text-align: center;
+    font-size: 70px;
+    margin: 20px;
+    padding: 20px;
+    color: purple
+}
+
+
+.msgBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.winner {
+    font-family: 'Baloo Tammudu 2', cursive;
+    font-weight: bold;
+    font-size: 25px;
+    color: #4e93e2;
+    margin-bottom: 20px;
+    text-align: center;
+    width:400px;
+    height:40px;
+}
+
+.restartButton{
+    display:inline-block;
+    padding:10px 30px;
+    border: 2px solid #FFFFFF;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight: bold;
+    font-size: 20px;
+    color:#4e93e2;
+    text-align:center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.restartButton:hover{
+    color:white;
+    background-color:#415597;
+}
+
+@media all and (max-width:500px){
+.restartButton{
+    display:block;
+    margin:0.4em auto;
+    }
+} 
+
+
+
+
+.gameBoardContainer{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(3,auto);
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.cell{
+    border:rgb(175, 153, 153) solid 3px;
+    margin: auto;
+    width:100px;
+    height:100px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none ;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7){
+    border-left:none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9){
+    border-right:none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9){
+    border-bottom:none;
+}
+
+.cell.x,
+.cell.o{
+    cursor:default;
+}
+
+
+
+/* //////////////////// x mark /////////////////////////////*/
+.cell.x{
+    background-color: white;
+}
+
+.cell.x::before,
+.cell.x::after{
+    background-color: rgb(206, 1, 206);
+}
+
+.gameBoardContainer.x .cell:not(.x):not(.o):hover::before,
+.gameBoardContainer.x .cell:not(.x):not(.o):hover::after{
+    background-color: rgb(201, 235, 247)
+}
+
+.cell.x::before,
+.gameBoardContainer.x .cell:not(.x):not(.o):hover::before{
+    transform:rotate(45deg);
+    border-radius: 10px;
+}
+
+.cell.x::after,
+.gameBoardContainer.x .cell:not(.x):not(.o):hover::after{
+    transform:rotate(-45deg);
+    border-radius: 10px;
+}
+
+.cell.x::before,
+.cell.x::after,
+.gameBoardContainer.x .cell:not(.x):not(.o):hover::before,
+.gameBoardContainer.x .cell:not(.x):not(.o):hover::after{
+    content:" ";
+    position:absolute;
+    width: 15px;
+    height: 100px;
+}
+
+
+
+
+/* //////////////////// O mark /////////////////////////////*/
+.cell.o{
+    background-color: white;
+}
+
+.cell.o::before,
+.cell.o::after{
+    background-color: rgb(106, 196, 199);
+}
+
+.gameBoardContainer.o .cell:not(.x):not(.o):hover::before,
+.gameBoardContainer.o .cell:not(.x):not(.o):hover::after{
+    background-color:  rgba(109, 199, 202, 0.432);
+}
+
+
+.cell.o::before,
+.cell.o::after,
+.gameBoardContainer.o .cell:not(.x):not(.o):hover::before,
+.gameBoardContainer.o .cell:not(.x):not(.o):hover::after{
+    content:" ";
+    position:absolute;
+    width:90px;
+    height:90px;
+ 
+}
+
+.cell.o::before,
+.gameBoardContainer.o .cell:not(.x):not(.o):hover::before{
+    border-radius: 100%;
+    width:90px;
+    height:90px;
+}
+
+.cell.o::after,
+.gameBoardContainer.o .cell:not(.x):not(.o):hover::after{
+    border-radius: 100%;
+    width:65px;
+    height:65px;
+    background-color: white;
+}
 
