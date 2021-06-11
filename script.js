@@ -80,16 +80,29 @@ const gameBoard = (function (){
             })
         })
 
+        cellsArr = Array.from(cells)
+    
+        const tie = cellsArr.every(cell=>{
+           return cell.classList.contains("x") || cell.classList.contains("o")
+        })
+
         
+        
+
 
         if (winner === true){
             winnerIs.textContent = `Player ${currentTurn.toUpperCase()} is the winner`;
             disableInput()
-        } else if (winner === false){
-            winnerIs.textContent="currently no winner"
+        } else if (tie === true){
+            winnerIs.textContent="Tie"
         }
     }
     
+
+  
+
+
+
     //function to disable player's input
     function disableInput(){
         gameBoardContainer.classList.remove('x')
